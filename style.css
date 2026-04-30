@@ -1,0 +1,153 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+
+  /* 1. 배경 그라데이션 */
+  background: linear-gradient(180deg, #CAF0F8 0%, #ADE8F4 100%);
+
+  color: #3A4F7A;
+}
+
+/* 전체 중앙 정렬 */
+.container {
+  width: 100%;
+  max-width: 520px;
+  min-height: 100vh;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 3. 화이트 박스 (유리창 효과) */
+.white-box {
+  width: 100%;
+  padding: 40px;
+
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 2. H1 스타일 */
+h1 {
+  text-align: center;
+  margin-bottom: 32px;
+  font-size: 28px;
+
+  color: #3A4F7A;
+}
+
+/* 질문 */
+#question {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* 답변 버튼 영역 */
+#answers {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* 버튼 간격 */
+}
+
+/* 버튼 스타일 */
+button {
+  position: relative;
+  overflow: hidden;
+
+  width: 100%;
+  padding: 14px 18px;
+
+  border: none;
+  border-radius: 5px;
+
+  background-color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  width: 0;
+  height: 0;
+
+  background: rgba(173, 232, 244, 0.6);
+  border-radius: 50%;
+
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+button:active::after {
+  width: 260px;
+  height: 260px;
+  opacity: 1;
+
+  transition: width 0.45s ease, height 0.45s ease, opacity 0.7s ease;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transform: translateY(-2px);
+}
+
+/* 결과 영역 */
+#result {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#result ol {
+  text-align: left;
+  display: inline-block;
+  padding-left: 24px;
+}
+
+/* 📱 모바일 대응 */
+@media (max-width: 480px) {
+  body {
+    padding: 16px;
+  }
+
+  .white-box {
+    padding: 28px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  #question {
+    font-size: 18px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 13px 16px;
+  }
+}
